@@ -1,5 +1,4 @@
-import { Person } from "../Person";
-import { Gender } from "../Person";
+import { Person, Gender } from "../Person";
 
 export enum StaffCategory{
     CHEF,
@@ -12,6 +11,7 @@ export enum StaffCategory{
 }
 export class Staff extends Person {
     private salary: number = 0;
+
     constructor(
         protected category: StaffCategory,id: number,name: string,age: number,gender: Gender) {
         super(id,name, age, gender);
@@ -23,6 +23,7 @@ export class Staff extends Person {
       getSalary() {
         return this.salary;
       }
+      
       getCatetory(){
         return this.category;
       }

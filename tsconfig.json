@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-      "strictNullChecks": true,
-      "noImplicitAny": true,
-      "outDir": "dist"
-    },
-    "include": ["src/**/*", "Main.ts"],
-  }
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+}
