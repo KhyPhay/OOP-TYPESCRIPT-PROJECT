@@ -19,11 +19,9 @@ export class HumanManager {
       getCustomerNormal() {
         return this.customerNormal;
       }
-    
       addStaff(staff: Staff) {
         this.staffs.push(staff);
       }
-    
       getStaffs() {
         return this.staffs;
       }
