@@ -1,7 +1,8 @@
-import { Person } from "../Person";
+import { Customer } from "./Customer";
 import { Gender } from "../Person";
-export class CustomerNormal extends Person{
-    constructor(protected id : number,protected name: string, protected age: number, protected gender: Gender){
-        super(id, name, age, gender);
+import { CustomerCategory } from "./Customer";
+export class CustomerNormal extends Customer{
+    constructor(category:CustomerCategory, id : number,name: string, age: number,  gender: Gender){
+        super(category,id, name, age, gender);
     }
 }

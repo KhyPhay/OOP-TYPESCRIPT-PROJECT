@@ -1,6 +1,6 @@
-import { CustomerNormal } from "./customer/CustomerNormal";
 import { CustomerVIP } from "./customer/CustomerVIP";
-import { CustomerCategory } from "./customer/CustomerCategory";
+import { CustomerNormal } from "./customer/CustomerNormal";
+import { CustomerCategory } from "./customer/Customer";
 import { Staff } from "./staff/Staff";
 export class HumanManager {
     private customerVIP: CustomerVIP[]=[];

@@ -1,13 +1,10 @@
 import {DateTime} from "./DateTime"
-
-export enum EventCategory {
-  DOCTOR_APPOINTEMENT,
-}
-
+import {VIPRoom} from "../Room/DinningRoom/VIPRoom"
 export abstract class Event {
   constructor(
-    protected category: EventCategory,
     protected start: DateTime,
-    protected end: DateTime
+    protected end: DateTime,
+    protected room: VIPRoom,
   ) {}
+
 }

@@ -11,7 +11,21 @@ export enum StaffCategory{
 }
 export class Staff extends Person {
     private salary: number = 0;
-    constructor( private staffCategory: StaffCategory, id:number,name: string, age:number, gender: Gender){
-        super(id, name, age, gender);
+
+    constructor(
+        protected category: StaffCategory,id: number,name: string,age: number,gender: Gender) {
+        super(id,name, age, gender);
     }
+    setSalary(salary: number) {
+        this.salary = salary;
+      }
+    
+      getSalary() {
+        return this.salary;
+      }
+      
+      getCatetory(){
+        return this.category;
+      }
+    
 }
