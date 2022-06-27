@@ -1,7 +1,7 @@
 import { CustomerVIP } from "./customer/CustomerNormal";
 import { CustomerNormal } from "./customer/CustomerVIP";
 import { CustomerCategory } from "./customer/CustomerCategory";
-import { Staff } from "./staff/staff";
+import { Staff } from "./staff/Staff";
 export class HumanManager {
     private customerVIP: CustomerVIP[]=[];
     private customerNormal: CustomerNormal[]=[];
@@ -19,11 +19,9 @@ export class HumanManager {
       getCustomerNormal() {
         return this.customerNormal;
       }
-    
       addStaff(staff: Staff) {
         this.staffs.push(staff);
       }
-    
       getStaffs() {
         return this.staffs;
       }
