@@ -11,4 +11,21 @@ export class DiningRoom extends Room{
     constructor(id:number, protected roomCategory:RoomCategory){
         super(id);
     }
+
+
+    isAllTablesFree():boolean{
+        let result = true;
+        let tables = this.table;
+        for(let table of tables){
+            if(!table.getTableNoCustomer()){
+                result = false;
+            }
+        }
+        return result;
+    }
+
+    getRoomCatetory(){
+        return this.roomCategory;
+    }
+    
 }
