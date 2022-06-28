@@ -15,12 +15,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DateTime = void 0;
-var DateTime = /** @class */ (function (_super) {
-    __extends(DateTime, _super);
-    function DateTime(year, month, day, hour) {
-        return _super.call(this, year, month, day, hour) || this;
+exports.Kitchen = void 0;
+var Room_1 = require("../Room");
+var Kitchen = /** @class */ (function (_super) {
+    __extends(Kitchen, _super);
+    function Kitchen(id) {
+        return _super.call(this, id) || this;
     }
-    return DateTime;
-}(Date));
-exports.DateTime = DateTime;
+    return Kitchen;
+}(Room_1.Room));
+exports.Kitchen = Kitchen;

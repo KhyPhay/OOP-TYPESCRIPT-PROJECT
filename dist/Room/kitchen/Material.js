@@ -15,12 +15,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DateTime = void 0;
-var DateTime = /** @class */ (function (_super) {
-    __extends(DateTime, _super);
-    function DateTime(year, month, day, hour) {
-        return _super.call(this, year, month, day, hour) || this;
+exports.Material = void 0;
+var Item_1 = require("./Item");
+var Material = /** @class */ (function (_super) {
+    __extends(Material, _super);
+    function Material(name, price, category) {
+        return _super.call(this, name, price, category) || this;
     }
-    return DateTime;
-}(Date));
-exports.DateTime = DateTime;
+    return Material;
+}(Item_1.Item));
+exports.Material = Material;

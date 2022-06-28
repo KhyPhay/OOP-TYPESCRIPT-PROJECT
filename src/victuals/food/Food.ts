@@ -1,5 +1,5 @@
-import { Vituals } from "../Vituals";
-import { VitaulsCategory} from "../Vituals";
+import { Vituals } from "../Victuals";
+import { VitaulsCategory} from "../Victuals";
 
 export enum FoodCategory{
     EveryDayFood,

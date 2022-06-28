@@ -18,4 +18,9 @@ export class Customer extends Person{
         }
         return result;
     }
+    
+    getCustomerCategory(){
+        return this.category;
+
+    }
 }

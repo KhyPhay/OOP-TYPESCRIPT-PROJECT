@@ -15,12 +15,20 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DateTime = void 0;
-var DateTime = /** @class */ (function (_super) {
-    __extends(DateTime, _super);
-    function DateTime(year, month, day, hour) {
-        return _super.call(this, year, month, day, hour) || this;
+exports.Food = exports.FoodCategory = void 0;
+var Victuals_1 = require("../Victuals");
+var FoodCategory;
+(function (FoodCategory) {
+    FoodCategory[FoodCategory["EveryDayFood"] = 0] = "EveryDayFood";
+    FoodCategory[FoodCategory["PackageFood"] = 1] = "PackageFood";
+})(FoodCategory = exports.FoodCategory || (exports.FoodCategory = {}));
+var Food = /** @class */ (function (_super) {
+    __extends(Food, _super);
+    function Food(foodCategory, vitaulsCategory, name, price) {
+        var _this = _super.call(this, vitaulsCategory, name, price) || this;
+        _this.foodCategory = foodCategory;
+        return _this;
     }
-    return DateTime;
-}(Date));
-exports.DateTime = DateTime;
+    return Food;
+}(Victuals_1.Vituals));
+exports.Food = Food;

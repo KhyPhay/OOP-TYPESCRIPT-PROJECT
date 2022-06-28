@@ -1,24 +1,42 @@
 import { CustomerVIP } from "./customer/CustomerVIP";
 import { CustomerNormal } from "./customer/CustomerNormal";
 import { CustomerCategory } from "./customer/Customer";
+import { Customer } from "./customer/Customer";
 import { Staff } from "./staff/Staff";
 export class HumanManager {
-    private customerVIP: CustomerVIP[]=[];
-    private customerNormal: CustomerNormal[]=[];
+    private customer: Customer[]=[];
     private staffs : Staff[]=[];
 
-    addCustomerVIP(customerVIP: CustomerVIP) {
-        this.customerVIP.push(customerVIP);
+    addCustomer(customer: Customer) {
+        this.customer.push(customer);
       }
-    addCustomerNormal(customerNormal: CustomerNormal) {
-        this.customerNormal.push(customerNormal);
+    
+      getCustomer() {
+        return this.customer;
       }
-      getCustomerVIP() {
-        return this.customerVIP;
+      getCustomerVIP():Customer[] {
+        let vipCustomer:Customer[] = []
+        let customers = this.customer;
+        customers.forEach(customer => {
+          if (customer.getCustomerCategory()==CustomerCategory.CUSTOMER_VIP){
+            vipCustomer.push(customer);
+          }
+          
+        });
+        return vipCustomer;
       }
       getCustomerNormal() {
-        return this.customerNormal;
+        let normalCustomer:Customer[] = []
+        let customers = this.customer;
+        customers.forEach(customer => {
+          if (customer.getCustomerCategory()==CustomerCategory.COSTOMER_NORMAL){
+            normalCustomer.push(customer);
+          }
+          
+        });
+        return normalCustomer;
       }
+      
       addStaff(staff: Staff) {
         this.staffs.push(staff);
       }

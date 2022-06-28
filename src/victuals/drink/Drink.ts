@@ -1,4 +1,4 @@
-import { Vituals,VitaulsCategory } from "../Vituals";
+import { Vituals,VitaulsCategory } from "../Victuals";
 
 export enum DrinkCategory{
     EveryDayDrink,
