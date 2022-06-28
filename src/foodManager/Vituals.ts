@@ -1,9 +1,9 @@
 
-export enum VitaulsType {
-    TYPE_FOOD,
-    TYPE_DRINK,
+export enum VitaulsCategory {
+    FOOD,
+    DRINK,
 }
 
 export abstract class Vituals{
-    constructor(protected vitaulsType:VitaulsType,  protected name : string, protected price: number){}
+    constructor(protected vitaulsCategory :VitaulsCategory,  protected name : string, protected price: number){}
 }

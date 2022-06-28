@@ -1,8 +1,8 @@
-import { FoodCategory, TypeFood } from "./TypeFood";
-import { VitaulsType } from "../Vituals";
+import { FoodCategory, Food } from "./Food";
+import { VitaulsCategory } from "../Vituals";
 
-export class PackageFood extends TypeFood{
-    constructor(foodCategory:FoodCategory.PackageFood,vitaulsType: VitaulsType.TYPE_FOOD,name: string, price: number){
+export class PackageFood extends Food{
+    constructor(foodCategory:FoodCategory.PackageFood,vitaulsType: VitaulsCategory.FOOD,name: string, price: number){
         super(foodCategory,vitaulsType,name, price);
     }
 }

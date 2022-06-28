@@ -1,8 +1,8 @@
-import { TypeDrink,DrinkCategory } from "./TypeDrink";
-import { VitaulsType } from "../Vituals";
+import { Drink,DrinkCategory } from "./Drink";
+import { VitaulsCategory } from "../Vituals";
 
-export class PackageDrink extends TypeDrink{
-    constructor(categoryDrink: DrinkCategory.PackageDrink,vitaulsType: VitaulsType.TYPE_DRINK,name: string, price: number){
-        super(categoryDrink,vitaulsType,name, price);
+export class PackageDrink extends Drink{
+    constructor(categoryDrink: DrinkCategory.PackageDrink,vitauls: VitaulsCategory.DRINK ,name: string, price: number){
+        super(categoryDrink,vitauls,name, price);
     }
 }
