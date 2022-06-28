@@ -32,11 +32,10 @@ export class HumanManager {
           if (customer.getCustomerCategory()==CustomerCategory.COSTOMER_NORMAL){
             normalCustomer.push(customer);
           }
-          
         });
         return normalCustomer;
       }
-      
+
       addStaff(staff: Staff) {
         this.staffs.push(staff);
       }

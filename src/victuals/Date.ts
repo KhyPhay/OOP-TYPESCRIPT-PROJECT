@@ -1,4 +1,4 @@
 
-export class Date{
-    constructor(protected day:number, protected month: number,year: number){}
-}
+// export class Date{
+//     constructor(protected day:number, protected month: number,year: number){}
+// }
