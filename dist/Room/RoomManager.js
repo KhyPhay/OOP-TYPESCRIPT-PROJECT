@@ -6,7 +6,7 @@ var RoomManager = /** @class */ (function () {
         this.diningRooms = [];
     }
     // public kichenRoom : Kitchen;
-    RoomManager.prototype.addDinningRoom = function (room) {
+    RoomManager.prototype.addDiningRoom = function (room) {
         return this.diningRooms.push(room);
     };
     return RoomManager;

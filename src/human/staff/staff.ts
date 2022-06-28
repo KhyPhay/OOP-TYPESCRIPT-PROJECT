@@ -10,7 +10,7 @@ export enum StaffCategory{
     WAITRON,
 }
 export class Staff extends Person {
-    private salary: number = 0;
+    protected salary: number = 0;
 
     constructor(
         protected category: StaffCategory,id: number,name: string,age: number,gender: Gender) {

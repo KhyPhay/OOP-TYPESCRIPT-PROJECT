@@ -6,7 +6,9 @@ export enum FoodCategory{
     PackageFood,
 }
 export class TypeFood extends Vituals{
-    constructor(protected foodCategory:FoodCategory,vitaulsType: VitaulsType,name: string, price: number){
+    constructor(protected foodCategory:FoodCategory,
+        vitaulsType: VitaulsType,
+        name: string, price: number){
         super(vitaulsType,name, price);
     }
 }
