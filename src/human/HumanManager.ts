@@ -18,7 +18,7 @@ export class HumanManager {
         let vipCustomer:Customer[] = []
         let customers = this.customer;
         customers.forEach(customer => {
-          if (customer.getCustomerCategory()==CustomerCategory.CUSTOMER_VIP){
+          if (customer.getCustomerCategory() === CustomerCategory.CUSTOMER_VIP){
             vipCustomer.push(customer);
           }
           

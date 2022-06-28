@@ -21,6 +21,5 @@ export class Customer extends Person{
     
     getCustomerCategory(){
         return this.category;
-
     }
 }
