@@ -15,12 +15,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DateTime = void 0;
-var DateTime = /** @class */ (function (_super) {
-    __extends(DateTime, _super);
-    function DateTime(year, month, day, hour) {
-        return _super.call(this, year, month, day, hour) || this;
+exports.EveryDayDrink = void 0;
+var Drink_1 = require("./Drink");
+var EveryDayDrink = /** @class */ (function (_super) {
+    __extends(EveryDayDrink, _super);
+    function EveryDayDrink(drinkCategory, VitaulsCategory, name, price) {
+        return _super.call(this, drinkCategory, VitaulsCategory, name, price) || this;
     }
-    return DateTime;
-}(Date));
-exports.DateTime = DateTime;
+    return EveryDayDrink;
+}(Drink_1.Drink));
+exports.EveryDayDrink = EveryDayDrink;

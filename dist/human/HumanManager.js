@@ -1,23 +1,37 @@
 "use strict";
 exports.__esModule = true;
 exports.HumanManager = void 0;
+var Customer_1 = require("./customer/Customer");
 var HumanManager = /** @class */ (function () {
     function HumanManager() {
-        this.customerVIP = [];
-        this.customerNormal = [];
+        this.customer = [];
         this.staffs = [];
     }
-    HumanManager.prototype.addCustomerVIP = function (customerVIP) {
-        this.customerVIP.push(customerVIP);
+    HumanManager.prototype.addCustomer = function (customer) {
+        this.customer.push(customer);
     };
-    HumanManager.prototype.addCustomerNormal = function (customerNormal) {
-        this.customerNormal.push(customerNormal);
+    HumanManager.prototype.getCustomer = function () {
+        return this.customer;
     };
     HumanManager.prototype.getCustomerVIP = function () {
-        return this.customerVIP;
+        var vipCustomer = [];
+        var customers = this.customer;
+        customers.forEach(function (customer) {
+            if (customer.getCustomerCategory() == Customer_1.CustomerCategory.CUSTOMER_VIP) {
+                vipCustomer.push(customer);
+            }
+        });
+        return vipCustomer;
     };
     HumanManager.prototype.getCustomerNormal = function () {
-        return this.customerNormal;
+        var normalCustomer = [];
+        var customers = this.customer;
+        customers.forEach(function (customer) {
+            if (customer.getCustomerCategory() == Customer_1.CustomerCategory.COSTOMER_NORMAL) {
+                normalCustomer.push(customer);
+            }
+        });
+        return normalCustomer;
     };
     HumanManager.prototype.addStaff = function (staff) {
         this.staffs.push(staff);

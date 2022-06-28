@@ -15,12 +15,20 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DateTime = void 0;
-var DateTime = /** @class */ (function (_super) {
-    __extends(DateTime, _super);
-    function DateTime(year, month, day, hour) {
-        return _super.call(this, year, month, day, hour) || this;
+exports.Drink = exports.DrinkCategory = void 0;
+var Victuals_1 = require("../Victuals");
+var DrinkCategory;
+(function (DrinkCategory) {
+    DrinkCategory[DrinkCategory["EveryDayDrink"] = 0] = "EveryDayDrink";
+    DrinkCategory[DrinkCategory["PackageDrink"] = 1] = "PackageDrink";
+})(DrinkCategory = exports.DrinkCategory || (exports.DrinkCategory = {}));
+var Drink = /** @class */ (function (_super) {
+    __extends(Drink, _super);
+    function Drink(drinkCategory, victualsCategory, name, price) {
+        var _this = _super.call(this, victualsCategory, name, price) || this;
+        _this.drinkCategory = drinkCategory;
+        return _this;
     }
-    return DateTime;
-}(Date));
-exports.DateTime = DateTime;
+    return Drink;
+}(Victuals_1.Vituals));
+exports.Drink = Drink;

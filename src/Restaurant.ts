@@ -2,7 +2,8 @@ import { Address } from "./Address";
 import { RoomManager } from "./Room/RoomManager";
 import { HumanManager } from "./human/HumanManager";
 import { CalendarManager } from "./calendar/CalendarManager";
-import { Vituals } from "./foodManager/Vituals";
+import { Vituals } from "./victuals/Victuals";
+import { VictualsManager } from "./victuals/VictualsManager";
 
 export class Restaurant {
     private address: Address;
@@ -16,4 +17,5 @@ export class Restaurant {
     public calendar: CalendarManager = new CalendarManager();
     public rooms : RoomManager = new RoomManager();
     public hr: HumanManager = new HumanManager();
+    public victuals: VictualsManager = new VictualsManager();
 }

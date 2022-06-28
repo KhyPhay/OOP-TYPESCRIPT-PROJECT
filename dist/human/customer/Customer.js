@@ -37,6 +37,9 @@ var Customer = /** @class */ (function (_super) {
         }
         return result;
     };
+    Customer.prototype.getCustomerCategory = function () {
+        return this.category;
+    };
     return Customer;
 }(Person_1.Person));
 exports.Customer = Customer;

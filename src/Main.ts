@@ -27,6 +27,12 @@ manager.setSalary(5000);
 
 let human = new HumanManager()
 restaurant.hr = human;
+
+restaurant.hr.addCustomer(vip1)
+restaurant.hr.addCustomer(vip)
+restaurant.hr.getCustomerVIP();
+console.log(restaurant.hr.getCustomerNormal())
+
 restaurant.hr.addStaff(manager);
 restaurant.hr.addStaff(chef);
 // console.log(human)
