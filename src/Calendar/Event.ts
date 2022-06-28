@@ -5,5 +5,13 @@ export abstract class Event {
     protected end: DateTime,
     
   ) {}
+  
+  hasEvent( other: Event): boolean {
+    let result = false;
+    if(this.start.getTime() < other.start.getTime()  && this.end.getTime() > other.end.getTime()){
+      result = true;
+    }
+    return result;
+  }
 
 }
