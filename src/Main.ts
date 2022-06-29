@@ -1,4 +1,3 @@
-
 import { CustomerVIP } from "./human/customer/CustomerVIP";
 import { Customer, CustomerCategory} from "./human/customer/Customer";
 import {Gender} from "./human/Person";
@@ -25,14 +24,16 @@ import { NormalRoom } from "./room/diningRoom/NormalRoom";
 import { RoomCategory } from "./Room/diningRoom/DiningRoom";
 import { VIPRoom } from "./Room/diningRoom/VIPRoom";
 import { Table } from "./Room/diningRoom/table/Table";
+import { CustomerBooked } from "./calendar/CustomerBooked";
+import { Waitron } from "./human/staff/Waitron";
 
 // address of restaurant
 let addess = new Address('phnom penh',2004);
 let restaurant = new Restaurant('Luckily', addess);
 
 // create customerVIP in restaurant
-let vip = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,0884382832);
-let vip1 = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,0884392832);
+let vip = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,884382832);
+let vip1 = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,884392832);
 // console.log(vip.isEqual(vip1));
 
 // create staffs in restaurant
@@ -118,6 +119,15 @@ restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(normalRoom.getTable())
 
+// calendar
+// let start = new Date(2022,12,4,2);
+// let end = new Date(2022,12,4,8);
 
+let start = new Date("December 17, 2022 16:00:00");
+let end = new Date("December 18, 2022 16:00:00");
+let waitron = new Waitron(StaffCategory.WAITRON,1,'chanthy',20,Gender.FEMALE);
+let customerBooked = new CustomerBooked(vip1, vipRoom,start,end);
+customerBooked.addWaitron(waitron);
+console.log(customerBooked)
 
 

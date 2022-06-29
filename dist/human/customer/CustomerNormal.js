@@ -19,8 +19,8 @@ exports.CustomerNormal = void 0;
 var Customer_1 = require("./Customer");
 var CustomerNormal = /** @class */ (function (_super) {
     __extends(CustomerNormal, _super);
-    function CustomerNormal(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function CustomerNormal(category, id) {
+        return _super.call(this, category, id) || this;
     }
     return CustomerNormal;
 }(Customer_1.Customer));

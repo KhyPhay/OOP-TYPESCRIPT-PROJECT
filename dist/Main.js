@@ -26,12 +26,14 @@ var NormalRoom_1 = require("./room/diningRoom/NormalRoom");
 var DiningRoom_1 = require("./Room/diningRoom/DiningRoom");
 var VIPRoom_1 = require("./Room/diningRoom/VIPRoom");
 var Table_1 = require("./Room/diningRoom/table/Table");
+var CustomerBooked_1 = require("./calendar/CustomerBooked");
+var Waitron_1 = require("./human/staff/Waitron");
 // address of restaurant
 var addess = new Address_1.Address('phnom penh', 2004);
 var restaurant = new Restaurant_1.Restaurant('Luckily', addess);
 // create customerVIP in restaurant
-var vip = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Person_1.Gender.FEMALE);
-var vip1 = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Person_1.Gender.FEMALE);
+var vip = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, 884382832);
+var vip1 = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, 884392832);
 // console.log(vip.isEqual(vip1));
 // create staffs in restaurant
 var manager = new Manager_1.Manager(Staff_1.StaffCategory.MANAGER, 1, 'Lina', 30, Person_1.Gender.FEMALE);
@@ -88,7 +90,6 @@ restaurant.rooms.addKitchenRoom(kitchen);
 // add table to diningRoom
 var table = new Table_1.Table(1, 5);
 table.addCustomer(vip1);
-console.log(table.getTableNoCustomer());
 var table1 = new Table_1.Table(2, 5);
 var table3 = new Table_1.Table(3, 5);
 var table4 = new Table_1.Table(4, 5);
@@ -102,3 +103,12 @@ normalRoom.addTable(table4);
 restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(normalRoom.getTable())
+// calendar
+// let start = new Date(2022,12,4,2);
+// let end = new Date(2022,12,4,8);
+var start = new Date("December 17, 2022 16:00:00");
+var end = new Date("December 18, 2022 16:00:00");
+var waitron = new Waitron_1.Waitron(Staff_1.StaffCategory.WAITRON, 1, 'chanthy', 20, Person_1.Gender.FEMALE);
+var customerBooked = new CustomerBooked_1.CustomerBooked(vip1, vipRoom, start, end);
+customerBooked.addWaitron(waitron);
+console.log(customerBooked);

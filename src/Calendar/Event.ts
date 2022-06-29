@@ -1,10 +1,13 @@
+import { VIPRoom } from "../Room/diningRoom/VIPRoom";
+import { Room } from "../Room/Room";
 import {DateTime} from "./DateTime"
 export abstract class Event {
   constructor(
     protected start: DateTime,
     protected end: DateTime,
-    
-  ) {}
+    protected room: VIPRoom
+  ){};
+
   
   hasEvent( other: Event): boolean {
     let result = false;
@@ -12,6 +15,10 @@ export abstract class Event {
       result = true;
     }
     return result;
+  }
+
+  getRoom(){
+    return this.room;
   }
 
 }
