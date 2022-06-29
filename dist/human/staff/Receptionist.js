@@ -19,8 +19,8 @@ exports.Receptionist = void 0;
 var Staff_1 = require("./Staff");
 var Receptionist = /** @class */ (function (_super) {
     __extends(Receptionist, _super);
-    function Receptionist(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function Receptionist(category, id, name, age, gender, phone) {
+        return _super.call(this, category, id, name, age, gender, phone) || this;
     }
     return Receptionist;
 }(Staff_1.Staff));

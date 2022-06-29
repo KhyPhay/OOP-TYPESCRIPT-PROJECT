@@ -19,8 +19,8 @@ exports.Chef = void 0;
 var Staff_1 = require("./Staff");
 var Chef = /** @class */ (function (_super) {
     __extends(Chef, _super);
-    function Chef(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function Chef(category, id, name, age, gender, phone) {
+        return _super.call(this, category, id, name, age, gender, phone) || this;
     }
     return Chef;
 }(Staff_1.Staff));

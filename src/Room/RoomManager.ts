@@ -2,13 +2,22 @@ import { DiningRoom } from "./diningRoom/DiningRoom";
 import { Kitchen } from "./kitchen/Kitchen";
 import { RoomCategory } from "./diningRoom/DiningRoom";
 import { VIPRoom } from "./diningRoom/VIPRoom";
-import { Event } from "../calendar/Event";
-import { CustomerVIP } from "../human/customer/CustomerVIP";
+import { CustomerBooked } from "../calendar/CustomerBooked";
 
 export class RoomManager {
    public diningRooms : DiningRoom[]=[];
    public kitchenRoom : Kitchen[]=[];
 
+   getVIPRoom(){
+      let rooms:VIPRoom[] = [];
+      for(let room of this.diningRooms){
+         if(room.getRoomCatetory() == RoomCategory.VIPROOM){
+            let vipRoom = room as VIPRoom;
+            rooms.push(vipRoom);
+         }
+      }
+      return rooms;
+   }
    addDiningRoom(room: DiningRoom) {
       this.diningRooms.push(room);
    }
@@ -17,23 +26,21 @@ export class RoomManager {
    }
    
 
-   getVIPRoomFree(event: Event):VIPRoom | undefined {
-      let diningRooms = this.diningRooms
-      for(let room of diningRooms) {
-         if(room.isAllTablesFree() && room.getRoomCatetory()===RoomCategory.VIPROOM){
-            let vipRoom = room as VIPRoom;
-            if(vipRoom.getEvent() === undefined || !vipRoom.getEvent()?.hasEvent(event)){
-               return vipRoom
-            }
+   getVIPRoomFree():VIPRoom | undefined {
+      let vipRooms = this.getVIPRoom();
+      for(let room of vipRooms){
+         if(room.getCustomerBooked()!== undefined){
+            return room;
          }
       }
       return undefined;
    }
 
-   addCustomerVIP(customer: CustomerVIP ,event: Event) {
-      let room = this.getVIPRoomFree(event)
+   addCustomerVIP(customerBooked:CustomerBooked ) {
+      let room = this.getVIPRoomFree()
       if(room !== undefined) {
-         room.addCustomer(customer)
+         room.setCustomerBooked(customerBooked);
       }
    }
+
 }

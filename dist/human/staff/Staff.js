@@ -29,8 +29,8 @@ var StaffCategory;
 })(StaffCategory = exports.StaffCategory || (exports.StaffCategory = {}));
 var Staff = /** @class */ (function (_super) {
     __extends(Staff, _super);
-    function Staff(category, id, name, age, gender) {
-        var _this = _super.call(this, id, name, age, gender) || this;
+    function Staff(category, id, name, age, gender, phone) {
+        var _this = _super.call(this, id, name, age, gender, phone) || this;
         _this.category = category;
         _this.salary = 0;
         return _this;

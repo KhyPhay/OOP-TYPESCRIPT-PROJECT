@@ -15,13 +15,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Dishwasher = void 0;
-var Staff_1 = require("./Staff");
-var Dishwasher = /** @class */ (function (_super) {
-    __extends(Dishwasher, _super);
-    function Dishwasher(category, id, name, age, gender, phone) {
-        return _super.call(this, category, id, name, age, gender, phone) || this;
+exports.Food = void 0;
+var Meal_1 = require("./Meal");
+var Food = /** @class */ (function (_super) {
+    __extends(Food, _super);
+    function Food(foodCategory, name, price) {
+        var _this = _super.call(this, foodCategory, name, price) || this;
+        _this.foodCategory = foodCategory;
+        return _this;
     }
-    return Dishwasher;
-}(Staff_1.Staff));
-exports.Dishwasher = Dishwasher;
+    return Food;
+}(Meal_1.Meal));
+exports.Food = Food;

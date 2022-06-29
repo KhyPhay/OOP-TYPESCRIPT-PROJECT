@@ -12,6 +12,17 @@ export class DiningRoom extends Room{
         super(id);
     }
 
+    isEqual(other:DiningRoom):boolean{
+        if(
+            this.table.length==other.table.length && 
+            this.id==other.id &&
+            this.roomCategory ==other.roomCategory
+        ){
+            return true;
+        }
+        return false;
+    }
+
 
     addTable(...table:Table[]){
         this.table = this.table.concat(...table);

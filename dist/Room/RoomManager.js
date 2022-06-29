@@ -10,8 +10,8 @@ var RoomManager = /** @class */ (function () {
     RoomManager.prototype.addDiningRoom = function (room) {
         this.diningRooms.push(room);
     };
-    RoomManager.prototype.addKitchenRoom = function (kichenroom) {
-        return this.kitchenRoom.push(kichenroom);
+    RoomManager.prototype.addKitchenRoom = function (kichenRoom) {
+        return this.kitchenRoom.push(kichenRoom);
     };
     RoomManager.prototype.getVIPRoomFree = function (event) {
         var _a;

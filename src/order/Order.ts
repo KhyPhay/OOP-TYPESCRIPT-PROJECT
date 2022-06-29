@@ -1,11 +1,11 @@
 import { DateTime } from "../calendar/DateTime";
-import { Waitron } from "../human/staff/Waitron";
+import { Waiter } from "../human/staff/Waiter";
 import { Table } from "../Room/diningRoom/table/Table";
-import { Meal } from "../Food/Meal";
+import { Meal } from "../meal/Meal";
 
 export class Order {
     private meal : Meal[]=[];
-    constructor(private date : DateTime, private table : Table, private waitron: Waitron){}
+    constructor(private date : DateTime, private table : Table, private waitron: Waiter){}
 
     getPriceFromOrder(){
         let price = 0;

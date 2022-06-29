@@ -2,6 +2,7 @@
 export enum MealCategory {
     MEAL,
     DRINK,
+    Dessert,
 }
 
 export abstract class Meal{

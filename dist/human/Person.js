@@ -7,15 +7,13 @@ var Gender;
     Gender[Gender["FEMALE"] = 1] = "FEMALE";
 })(Gender = exports.Gender || (exports.Gender = {}));
 var Person = /** @class */ (function () {
-    function Person(id, name, age, gender) {
+    function Person(id, name, age, gender, phone) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;
-    }
-    Person.prototype.setPhone = function (phone) {
         this.phone = phone;
-    };
+    }
     return Person;
 }());
 exports.Person = Person;

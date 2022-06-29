@@ -19,11 +19,12 @@ exports.CustomerVIP = void 0;
 var Customer_1 = require("./Customer");
 var CustomerVIP = /** @class */ (function (_super) {
     __extends(CustomerVIP, _super);
-    function CustomerVIP(category, id, name, age, gender) {
+    function CustomerVIP(category, id, name, age, gender, phone) {
         var _this = _super.call(this, category, id) || this;
         _this.name = name;
         _this.age = age;
         _this.gender = gender;
+        _this.phone = phone;
         return _this;
     }
     return CustomerVIP;

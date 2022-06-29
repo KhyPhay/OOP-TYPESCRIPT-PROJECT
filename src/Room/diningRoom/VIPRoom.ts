@@ -1,24 +1,20 @@
 import { DiningRoom } from "./DiningRoom";
 import { RoomCategory } from "./DiningRoom";
-import { Event } from "../../calendar/Event";
-import { Table } from "./table/Table";
+import { CustomerBooked } from "../../calendar/CustomerBooked";
 import { CustomerVIP } from "../../human/customer/CustomerVIP";
 
 export class VIPRoom extends DiningRoom{
-    private event?: Event = undefined;
-    private customerVIP : CustomerVIP[]=[];
-    constructor(id:number, roomCategory:RoomCategory.VIPROOM){
+    private customerBooked?: CustomerBooked = undefined;
+    constructor(id:number, roomCategory:RoomCategory.VIPROOM,){
         super(id,roomCategory);
     }
 
-    setEvent(event:Event){
-        this.event = event;
+    setCustomerBooked(customerBooked:CustomerBooked){
+        this.customerBooked = customerBooked;
     }
-    
-    getEvent(){
-        return this.event;
-    }
-    addCustomer(...customer:CustomerVIP[]){
-        this.customerVIP = this.customerVIP.concat(...customer);
+
+
+    getCustomerBooked():CustomerBooked|undefined{
+        return this.customerBooked;
     }
 }

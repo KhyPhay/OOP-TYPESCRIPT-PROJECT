@@ -2,8 +2,8 @@ import { Address } from "./Address";
 import { RoomManager } from "./room/RoomManager";
 import { HumanManager } from "./human/HumanManager";
 import { CalendarManager } from "./calendar/CalendarManager";
-import { Meal } from "./Food/Meal";
-import { MealManager } from "./Food/MealManager";
+import { Meal } from "./meal/Meal";
+import { MealManager } from "./meal/MealManager";
 import { OrderManager } from "./order/orderManager";
 
 export class Restaurant {

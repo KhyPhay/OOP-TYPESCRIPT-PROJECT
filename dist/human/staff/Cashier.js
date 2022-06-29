@@ -19,8 +19,8 @@ exports.Cashier = void 0;
 var Staff_1 = require("./Staff");
 var Cashier = /** @class */ (function (_super) {
     __extends(Cashier, _super);
-    function Cashier(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function Cashier(category, id, name, age, gender, phone) {
+        return _super.call(this, category, id, name, age, gender, phone) || this;
     }
     return Cashier;
 }(Staff_1.Staff));

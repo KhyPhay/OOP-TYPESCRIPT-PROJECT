@@ -19,8 +19,8 @@ exports.Manager = void 0;
 var Staff_1 = require("./Staff");
 var Manager = /** @class */ (function (_super) {
     __extends(Manager, _super);
-    function Manager(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function Manager(category, id, name, age, gender, phone) {
+        return _super.call(this, category, id, name, age, gender, phone) || this;
     }
     return Manager;
 }(Staff_1.Staff));

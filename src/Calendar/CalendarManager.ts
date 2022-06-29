@@ -1,10 +1,23 @@
 
-import { Event } from "./Event";
+import { Room } from "../Room/Room";
+import { CustomerBooked } from "./CustomerBooked";
 
 export class CalendarManager {
-    private events:Event[]=[];
+    private customerBooked:CustomerBooked[]=[];
 
-    getEvents():Event[] {
-        return this.events;
+    getCustomerBooked():CustomerBooked[] {
+        return this.customerBooked;
+    }
+    addEvent(other: CustomerBooked) {
+        this.customerBooked.push(other);
+      }
+
+    getEventRooms(): Room[]{
+        let rooms:Room[] = [];
+        let customerBookeds = this.customerBooked;
+        customerBookeds.forEach(customerBooked => {
+            rooms.push(customerBooked.getRoom())
+        });
+        return rooms;
     }
 }

@@ -19,8 +19,8 @@ exports.Security = void 0;
 var Staff_1 = require("./Staff");
 var Security = /** @class */ (function (_super) {
     __extends(Security, _super);
-    function Security(category, id, name, age, gender) {
-        return _super.call(this, category, id, name, age, gender) || this;
+    function Security(category, id, name, age, gender, phone) {
+        return _super.call(this, category, id, name, age, gender, phone) || this;
     }
     return Security;
 }(Staff_1.Staff));
