@@ -1,5 +1,5 @@
 import { Address } from "./Address";
-import { RoomManager } from "./Room/RoomManager";
+import { RoomManager } from "./room/RoomManager";
 import { HumanManager } from "./human/HumanManager";
 import { CalendarManager } from "./calendar/CalendarManager";
 import { Vituals } from "./victuals/Victuals";

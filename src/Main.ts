@@ -35,4 +35,4 @@ console.log(restaurant.hr.getCustomerNormal())
 
 restaurant.hr.addStaff(manager);
 restaurant.hr.addStaff(chef);
-// console.log(human)
+
