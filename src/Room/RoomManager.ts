@@ -12,8 +12,8 @@ export class RoomManager {
    addDiningRoom(room: DiningRoom) {
       this.diningRooms.push(room);
    }
-   addKitchenRoom(kichenroom: Kitchen) {
-      return this.kitchenRoom.push(kichenroom);
+   addKitchenRoom(kichenRoom: Kitchen) {
+      return this.kitchenRoom.push(kichenRoom);
    }
    
 
