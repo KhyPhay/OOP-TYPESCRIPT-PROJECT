@@ -10,6 +10,10 @@ export class RoomManager {
    addDiningRoom(room: DiningRoom) {
       return this.diningRooms.push(room);
    }
+   addKitchenRoom(kichenroom: Kitchen) {
+      return this.kitchenRoom.push(kichenroom);
+   }
+   
 
    getVIPRoomFree(event: Event):DiningRoom | undefined {
       let diningRooms = this.diningRooms

@@ -20,8 +20,17 @@ var Room_1 = require("../Room");
 var Kitchen = /** @class */ (function (_super) {
     __extends(Kitchen, _super);
     function Kitchen(id) {
-        return _super.call(this, id) || this;
+        var _this = _super.call(this, id) || this;
+        _this.material = [];
+        _this.ingredient = [];
+        return _this;
     }
+    Kitchen.prototype.addMaterial = function (material) {
+        this.material.push(material);
+    };
+    Kitchen.prototype.addIngredient = function (ingredient) {
+        this.ingredient.push(ingredient);
+    };
     return Kitchen;
 }(Room_1.Room));
 exports.Kitchen = Kitchen;

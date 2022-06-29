@@ -17,7 +17,7 @@ var HumanManager = /** @class */ (function () {
         var vipCustomer = [];
         var customers = this.customer;
         customers.forEach(function (customer) {
-            if (customer.getCustomerCategory() == Customer_1.CustomerCategory.CUSTOMER_VIP) {
+            if (customer.getCustomerCategory() === Customer_1.CustomerCategory.CUSTOMER_VIP) {
                 vipCustomer.push(customer);
             }
         });

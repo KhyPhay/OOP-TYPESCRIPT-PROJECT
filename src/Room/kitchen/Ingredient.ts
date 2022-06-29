@@ -1,6 +1,4 @@
 
-
-
 import { Item, ItemCategory } from "./Item";
 
 export class Ingredient extends Item {

@@ -16,15 +16,23 @@ import { PackageDrink } from "./victuals/drink/PackageDrink";
 import { EveryDayFood } from "./victuals/food/EverydayFood";
 import { FoodCategory } from "./victuals/food/Food";
 import { PackageFood } from "./victuals/food/PackageFood";
-
+import { Ingredient } from "./room/kitchen/Ingredient";
+import { ItemCategory } from "./room/kitchen/Item";
+import { Material } from "./room/kitchen/Material";
+import { RoomManager } from "./Room/RoomManager";
+import{Kitchen} from "./room/kitchen/Kitchen"
+import { NormalRoom } from "./room/diningRoom/NormalRoom";
+import { RoomCategory } from "./Room/diningRoom/DiningRoom";
+import { VIPRoom } from "./Room/diningRoom/VIPRoom";
+import { Table } from "./Room/diningRoom/table/Table";
 
 // address of restaurant
 let addess = new Address('phnom penh',2004);
 let restaurant = new Restaurant('Luckily', addess);
 
 // create customerVIP in restaurant
-let vip = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Gender.FEMALE);
-let vip1 = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Gender.FEMALE);
+let vip = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,0884382832);
+let vip1 = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19,0884392832);
 // console.log(vip.isEqual(vip1));
 
 // create staffs in restaurant
@@ -69,5 +77,47 @@ restaurant.victuals.addDrink(Smoothie);
 // add food into VictualsManager
 restaurant.victuals.addFood(soups);
 restaurant.victuals.addFood(noodles);
-// restaurant.victuals.getExpirationDate()
-// console.log(restaurant.victuals.getExpirationDate())
+
+// create Ingredient
+let meat = new Ingredient('meat',900,ItemCategory.INGREDIENT);
+let vegetables = new Ingredient('vegetables',900,ItemCategory.INGREDIENT);
+let fish = new Ingredient('fish',900,ItemCategory.INGREDIENT);
+// create material
+
+let plate = new Material('plate',300,ItemCategory.MATERIAL);
+let Knife = new Material('Knife',20,ItemCategory.MATERIAL);
+// add material and ingredient to Kitchen
+let kitchen = new Kitchen(1);
+kitchen.addMaterial(plate);
+kitchen.addMaterial(Knife);
+kitchen.addIngredient(meat);
+kitchen.addIngredient(fish);
+kitchen.addIngredient(vegetables);
+let rooms = new RoomManager();
+restaurant.rooms = rooms;
+restaurant.rooms.addKitchenRoom(kitchen);
+// console.log(kitchen)
+
+// add table to diningRoom
+let table = new Table(1,5);
+table.addCustomer(vip1);
+
+
+let table1 = new Table(2,5)
+let table3 = new Table(3,5)
+let table4 = new Table(4,5)
+let normalRoom = new NormalRoom(1,RoomCategory.NORMALROOM);
+let vipRoom = new VIPRoom(1,RoomCategory.VIPROOM);
+vipRoom.addTable(table);
+vipRoom.addTable(table1);
+normalRoom.addTable(table3)
+normalRoom.addTable(table4)
+// console.log(vipRoom.addTable(table))
+
+restaurant.rooms.addDiningRoom(normalRoom);
+restaurant.rooms.addDiningRoom(vipRoom);
+// console.log(normalRoom.getTable())
+
+
+
+

@@ -11,8 +11,13 @@ export class DiningRoom extends Room{
     constructor(id:number, protected roomCategory:RoomCategory){
         super(id);
     }
-
-
+    
+    addTable(tables: Table){
+        return this.table.push(tables);
+    }
+    getTable(){
+        return this.table
+    }
     isAllTablesFree():boolean{
         let result = true;
         let tables = this.table;
@@ -27,5 +32,5 @@ export class DiningRoom extends Room{
     getRoomCatetory(){
         return this.roomCategory;
     }
-    
+
 }

@@ -20,8 +20,16 @@ var DiningRoom_1 = require("./DiningRoom");
 var VIPRoom = /** @class */ (function (_super) {
     __extends(VIPRoom, _super);
     function VIPRoom(id, roomCategory) {
-        return _super.call(this, id, roomCategory) || this;
+        var _this = _super.call(this, id, roomCategory) || this;
+        _this.event = undefined;
+        return _this;
     }
+    VIPRoom.prototype.setEvent = function (event) {
+        this.event = event;
+    };
+    VIPRoom.prototype.getEvent = function () {
+        return this.event;
+    };
     return VIPRoom;
 }(DiningRoom_1.DiningRoom));
 exports.VIPRoom = VIPRoom;

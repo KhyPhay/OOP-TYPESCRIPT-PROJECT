@@ -4,6 +4,7 @@ import { HumanManager } from "./human/HumanManager";
 import { CalendarManager } from "./calendar/CalendarManager";
 import { Vituals } from "./victuals/Victuals";
 import { VictualsManager } from "./victuals/VictualsManager";
+import { OrderManager } from "./order/orderManager";
 
 export class Restaurant {
     private address: Address;
@@ -18,4 +19,5 @@ export class Restaurant {
     public rooms : RoomManager = new RoomManager();
     public hr: HumanManager = new HumanManager();
     public victuals: VictualsManager = new VictualsManager();
+    public order : OrderManager = new OrderManager();
 }

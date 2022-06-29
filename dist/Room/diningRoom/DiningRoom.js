@@ -30,6 +30,26 @@ var DiningRoom = /** @class */ (function (_super) {
         _this.table = [];
         return _this;
     }
+    DiningRoom.prototype.addTable = function (tables) {
+        return this.table.push(tables);
+    };
+    DiningRoom.prototype.getTable = function () {
+        return this.table;
+    };
+    DiningRoom.prototype.isAllTablesFree = function () {
+        var result = true;
+        var tables = this.table;
+        for (var _i = 0, tables_1 = tables; _i < tables_1.length; _i++) {
+            var table = tables_1[_i];
+            if (!table.getTableNoCustomer()) {
+                result = false;
+            }
+        }
+        return result;
+    };
+    DiningRoom.prototype.getRoomCatetory = function () {
+        return this.roomCategory;
+    };
     return DiningRoom;
 }(Room_1.Room));
 exports.DiningRoom = DiningRoom;
