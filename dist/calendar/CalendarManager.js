@@ -8,7 +8,7 @@ var CalendarManager = /** @class */ (function () {
     CalendarManager.prototype.getCustomerBooked = function () {
         return this.customerBooked;
     };
-    CalendarManager.prototype.addEvent = function (other) {
+    CalendarManager.prototype.addCustomerBook = function (other) {
         this.customerBooked.push(other);
     };
     CalendarManager.prototype.getEventRooms = function () {

@@ -18,11 +18,19 @@ var RoomManager = /** @class */ (function () {
         }
         return rooms;
     };
-    RoomManager.prototype.addDiningRoom = function (room) {
-        this.diningRooms.push(room);
+    RoomManager.prototype.addDiningRoom = function () {
+        var room = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            room[_i] = arguments[_i];
+        }
+        this.diningRooms = this.diningRooms.concat(room);
     };
-    RoomManager.prototype.addKitchenRoom = function (kichenRoom) {
-        return this.kitchenRoom.push(kichenRoom);
+    RoomManager.prototype.addKitchenRoom = function () {
+        var kichenRoom = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            kichenRoom[_i] = arguments[_i];
+        }
+        this.kitchenRoom = this.kitchenRoom.concat(kichenRoom);
     };
     RoomManager.prototype.getVIPRoomFree = function () {
         var vipRooms = this.getVIPRoom();

@@ -26,8 +26,12 @@ var CustomerBooked = /** @class */ (function (_super) {
         _this.waiters = [];
         return _this;
     }
-    CustomerBooked.prototype.addWaiter = function (waitron) {
-        return this.waiters.push(waitron);
+    CustomerBooked.prototype.addWaiter = function () {
+        var waiter = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            waiter[_i] = arguments[_i];
+        }
+        this.waiters = this.waiters.concat(waiter);
     };
     CustomerBooked.prototype.getRoom = function () {
         return this.room;

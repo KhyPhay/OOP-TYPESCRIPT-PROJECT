@@ -8,7 +8,7 @@ export class VIPRoom extends DiningRoom{
     constructor(id:number, roomCategory:RoomCategory.VIPROOM,){
         super(id,roomCategory);
     }
-
+    
     setCustomerBooked(customerBooked:CustomerBooked){
         this.customerBooked = customerBooked;
     }

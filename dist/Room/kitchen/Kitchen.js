@@ -25,11 +25,19 @@ var Kitchen = /** @class */ (function (_super) {
         _this.ingredient = [];
         return _this;
     }
-    Kitchen.prototype.addMaterial = function (material) {
-        this.material.push(material);
+    Kitchen.prototype.addMaterial = function () {
+        var material = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            material[_i] = arguments[_i];
+        }
+        this.material = this.material.concat(material);
     };
-    Kitchen.prototype.addIngredient = function (ingredient) {
-        this.ingredient.push(ingredient);
+    Kitchen.prototype.addIngredient = function () {
+        var ingredient = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            ingredient[_i] = arguments[_i];
+        }
+        this.ingredient = this.ingredient.concat(ingredient);
     };
     return Kitchen;
 }(Room_1.Room));

@@ -26,6 +26,7 @@ var StaffCategory;
     StaffCategory[StaffCategory["CLEANER"] = 4] = "CLEANER";
     StaffCategory[StaffCategory["DISHWASHER"] = 5] = "DISHWASHER";
     StaffCategory[StaffCategory["WAITRON"] = 6] = "WAITRON";
+    StaffCategory[StaffCategory["Cashier"] = 7] = "Cashier";
 })(StaffCategory = exports.StaffCategory || (exports.StaffCategory = {}));
 var Staff = /** @class */ (function (_super) {
     __extends(Staff, _super);

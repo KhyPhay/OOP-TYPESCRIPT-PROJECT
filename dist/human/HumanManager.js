@@ -7,8 +7,12 @@ var HumanManager = /** @class */ (function () {
         this.customer = [];
         this.staffs = [];
     }
-    HumanManager.prototype.addCustomer = function (customer) {
-        this.customer.push(customer);
+    HumanManager.prototype.addCustomer = function () {
+        var customer = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            customer[_i] = arguments[_i];
+        }
+        this.customer = this.customer.concat(customer);
     };
     HumanManager.prototype.getCustomer = function () {
         return this.customer;
@@ -33,8 +37,12 @@ var HumanManager = /** @class */ (function () {
         });
         return normalCustomer;
     };
-    HumanManager.prototype.addStaff = function (staff) {
-        this.staffs.push(staff);
+    HumanManager.prototype.addStaff = function () {
+        var staff = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            staff[_i] = arguments[_i];
+        }
+        this.staffs = this.staffs.concat(staff);
     };
     HumanManager.prototype.getStaffs = function () {
         return this.staffs;

@@ -27,6 +27,9 @@ import { CalendarManager } from "./calendar/CalendarManager";
 import {Event} from "./calendar/Event"
 import { Order } from "./order/order";
 import { DateTime } from "./calendar/DateTime";
+import { Cashier } from "./human/staff/Cashier";
+import { Security } from "./human/staff/Security";
+import { Cleaner } from "./human/staff/Cleaner";
 
 
 // address of restaurant
@@ -42,7 +45,15 @@ let CustomerVIPKhy = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "khy", 19
 let manager = new Manager(StaffCategory.MANAGER,1,'Lina',30, Gender.FEMALE, "0884392832");
 manager.setSalary(5000);
 let chef = new Chef(StaffCategory.CHEF,2,'Dara',40, Gender.MALE, "884382832");
-manager.setSalary(1000);
+chef.setSalary(1000);
+let cashier = new Cashier(StaffCategory.Cashier,3,'chantha',20, Gender.FEMALE, "0884384832")
+cashier.setSalary(1000);
+let security = new Security(StaffCategory.SECURITY,3,'Vibol',30, Gender.MALE, "0884334832")
+security.setSalary(1000);
+let waiter = new Waiter(StaffCategory.WAITRON,1,'chanthy',20,Gender.FEMALE, "0884392832");
+waiter.setSalary(200);
+let cleaner = new Cleaner(StaffCategory.CLEANER,1,'chiva',20,Gender.FEMALE, "0888392832");
+cleaner.setSalary(100);
 
 let human = new HumanManager()
 restaurant.hr = human;
@@ -51,26 +62,20 @@ restaurant.hr.addCustomer(CustomerVIPKhy)
 restaurant.hr.getCustomerVIP();
 // console.log(restaurant.hr.getCustomerNormal())
 
-restaurant.hr.addStaff(manager);
-restaurant.hr.addStaff(chef);
-// console.log(human)
+restaurant.hr.addStaff(manager,chef,cashier,security,waiter,cleaner);
+console.log(human)
 
-// create drink in restaurant
+// create drink and food in restaurant
 let Coffee = new Drink(MealCategory.DRINK,'Coffee',200);
 let Smoothie  = new Drink (MealCategory.DRINK,'Smoothie', 300);
 let Cupcakes = new Dessert(MealCategory.Dessert,'Cupcakes',600)
-
-// create food and drink in restaurant
 let soups = new Food(MealCategory.MEAL,'soups',500);
 
 // add drink and food in FoodManager
 let meal = new MealManager()
 restaurant.meal = meal;
-restaurant.meal.addMeal(Smoothie);
-restaurant.meal.addMeal(Coffee);
-restaurant.meal.addMeal(soups);
-restaurant.meal.addMeal(Cupcakes);
-// console.log(victual)
+restaurant.meal.addMeal(Smoothie,Coffee,soups,Cupcakes);
+// console.log(meal)
 
 // create Ingredient
 let meat = new Ingredient('meat',900,ItemCategory.INGREDIENT);
@@ -84,11 +89,8 @@ let Knife = new Material('Knife',20,ItemCategory.MATERIAL);
 // add material and ingredient to Kitchen
 
 let kitchen = new Kitchen(1);
-kitchen.addMaterial(plate);
-kitchen.addMaterial(Knife);
-kitchen.addIngredient(meat);
-kitchen.addIngredient(fish);
-kitchen.addIngredient(vegetables);
+kitchen.addMaterial(plate,Knife);
+kitchen.addIngredient(meat,fish,vegetables);
 
 let rooms = new RoomManager();
 restaurant.rooms = rooms;
@@ -97,26 +99,24 @@ restaurant.rooms.addKitchenRoom(kitchen);
 
 // add table to diningRoom
 let table = new Table(1,5);
-table.addCustomerVIP(CustomerVIPKhy)
 let table1 = new Table(2,5)
 let table3 = new Table(3,5)
 let table4 = new Table(4,5)
+table.addCustomerVIP(CustomerVIPKhy)
+table1.addCustomerVIP(CustomerVIPThib)
 let normalRoom = new NormalRoom(1,RoomCategory.NORMALROOM);
 let vipRoom = new VIPRoom(1,RoomCategory.VIPROOM);
-vipRoom.addTable(table);
-vipRoom.addTable(table1);
-normalRoom.addTable(table3)
-normalRoom.addTable(table4)
-
+vipRoom.addTable(table,table1);
+normalRoom.addTable(table3,table4)
+// console.log(vipRoom.getTable())
 restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
-// console.log(normalRoom.getTable())
+// console.log(restaurant.rooms)
 
 // calendar
 
 let start = new DateTime(2022, 4, 18,2);
 let end = new DateTime(2022, 4, 18,8);
-let waiter = new Waiter(StaffCategory.WAITRON,1,'chanthy',20,Gender.FEMALE, "0884392832");
 let customerBooked = new CustomerBooked(CustomerVIPThib, vipRoom,start,end);
 customerBooked.addWaiter(waiter);
 let Calendar = new CalendarManager();

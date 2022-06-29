@@ -8,10 +8,10 @@ export class Kitchen extends Room {
     constructor(id: number){
         super(id)
     }
-    addMaterial(material: Material){
-        this.material.push(material);
+    addMaterial(...material: Material[]){
+        this.material = this.material.concat(material);
     }
-    addIngredient(ingredient: Ingredient){
-        this.ingredient.push(ingredient);
+    addIngredient(...ingredient: Ingredient[]){
+        this.ingredient = this.ingredient.concat(ingredient);
     }
 }
