@@ -16,7 +16,10 @@ export class DiningRoom extends Room{
     addTable(...table:Table[]){
         this.table = this.table.concat(...table);
     }
-
+    
+    getTable(){
+        return this.table
+    }
     isAllTablesFree():boolean{
         let result = true;
         let tables = this.table;
@@ -30,9 +33,6 @@ export class DiningRoom extends Room{
 
     getRoomCatetory(){
         return this.roomCategory;
-    }
-    getTable(){
-        return this.table;
     }
 
     getMaxNumberCustomer(){

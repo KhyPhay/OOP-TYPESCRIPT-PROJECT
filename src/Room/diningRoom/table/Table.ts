@@ -4,14 +4,11 @@ import { CustomerNormal } from "../../../human/customer/CustomerNormal";
 export class Table {
     private customers: Customer[]=[];
     constructor(private id: number, private numberOfCustomers: number){}
-
-    
     isTableFree():boolean{
         let result = false;
         if(this.customers.length < this.numberOfCustomers){
             result = true;
         }
-
         return result;
     }
 
@@ -33,7 +30,7 @@ export class Table {
             this.customers = this.customers.concat(...customerVIP);
         }
     }
-    
+
     getNumberOfCustomers(){
         return this.numberOfCustomers;
     }
