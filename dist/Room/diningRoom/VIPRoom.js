@@ -21,23 +21,14 @@ var VIPRoom = /** @class */ (function (_super) {
     __extends(VIPRoom, _super);
     function VIPRoom(id, roomCategory) {
         var _this = _super.call(this, id, roomCategory) || this;
-        _this.event = undefined;
-        _this.customerVIP = [];
+        _this.customerBooked = undefined;
         return _this;
     }
-    VIPRoom.prototype.setEvent = function (event) {
-        this.event = event;
+    VIPRoom.prototype.setCustomerBooked = function (customerBooked) {
+        this.customerBooked = customerBooked;
     };
-    VIPRoom.prototype.getEvent = function () {
-        return this.event;
-    };
-    VIPRoom.prototype.addCustomer = function () {
-        var _a;
-        var customer = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            customer[_i] = arguments[_i];
-        }
-        this.customerVIP = (_a = this.customerVIP).concat.apply(_a, customer);
+    VIPRoom.prototype.getCustomerBooked = function () {
+        return this.customerBooked;
     };
     return VIPRoom;
 }(DiningRoom_1.DiningRoom));

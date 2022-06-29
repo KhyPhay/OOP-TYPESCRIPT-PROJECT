@@ -25,11 +25,8 @@ import { Dessert } from "./meal/Dessert";
 import { Drink } from "./meal/Drink";
 import { CalendarManager } from "./calendar/CalendarManager";
 import {Event} from "./calendar/Event"
-
-
-
-
-
+import { Order } from "./order/order";
+import { DateTime } from "./calendar/DateTime";
 
 
 // address of restaurant
@@ -37,21 +34,20 @@ let addess = new Address('phnom penh',2004);
 let restaurant = new Restaurant('Luckily', addess);
 
 // create customerVIP in restaurant
-let vip = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Gender.MALE,"884382832");
-let vip1 = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Gender.FEMALE, "0884392832");
+let CustomerVIPThib = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Gender.FEMALE,"884382832");
+let CustomerVIPKhy = new CustomerVIP(CustomerCategory.CUSTOMER_VIP, 1, "khy", 19, Gender.MALE, "0884392832");
 // console.log(vip.isEqual(vip1));
 
 // create staffs in restaurant
 let manager = new Manager(StaffCategory.MANAGER,1,'Lina',30, Gender.FEMALE, "0884392832");
-manager.setSalary(10000);
-let chef = new Chef(StaffCategory.CHEF,2,'Dara',40, Gender.MALE, "884382832");
 manager.setSalary(5000);
+let chef = new Chef(StaffCategory.CHEF,2,'Dara',40, Gender.MALE, "884382832");
+manager.setSalary(1000);
 
 let human = new HumanManager()
 restaurant.hr = human;
-
-restaurant.hr.addCustomer(vip1)
-restaurant.hr.addCustomer(vip)
+restaurant.hr.addCustomer(CustomerVIPThib)
+restaurant.hr.addCustomer(CustomerVIPKhy)
 restaurant.hr.getCustomerVIP();
 // console.log(restaurant.hr.getCustomerNormal())
 
@@ -68,15 +64,13 @@ let Cupcakes = new Dessert(MealCategory.Dessert,'Cupcakes',600)
 let soups = new Food(MealCategory.MEAL,'soups',500);
 
 // add drink and food in FoodManager
-let victual = new MealManager()
-restaurant.victuals = victual;
-restaurant.victuals.addMeal(Smoothie);
-restaurant.victuals.addMeal(Coffee);
-restaurant.victuals.addMeal(soups);
-restaurant.victuals.addMeal(Cupcakes);
+let meal = new MealManager()
+restaurant.meal = meal;
+restaurant.meal.addMeal(Smoothie);
+restaurant.meal.addMeal(Coffee);
+restaurant.meal.addMeal(soups);
+restaurant.meal.addMeal(Cupcakes);
 // console.log(victual)
-
-
 
 // create Ingredient
 let meat = new Ingredient('meat',900,ItemCategory.INGREDIENT);
@@ -95,6 +89,7 @@ kitchen.addMaterial(Knife);
 kitchen.addIngredient(meat);
 kitchen.addIngredient(fish);
 kitchen.addIngredient(vegetables);
+
 let rooms = new RoomManager();
 restaurant.rooms = rooms;
 restaurant.rooms.addKitchenRoom(kitchen);
@@ -102,9 +97,7 @@ restaurant.rooms.addKitchenRoom(kitchen);
 
 // add table to diningRoom
 let table = new Table(1,5);
-table.addCustomerVIP(vip1)
-// console.log(table)
-
+table.addCustomerVIP(CustomerVIPKhy)
 let table1 = new Table(2,5)
 let table3 = new Table(3,5)
 let table4 = new Table(4,5)
@@ -120,18 +113,20 @@ restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(normalRoom.getTable())
 
 // calendar
-// let start = new Date(2022,12,4,2);
-// let end = new Date(2022,12,4,8);
 
-let start = new Date("December 17, 2022 16:00:00");
-let end = new Date("December 18, 2022 16:00:00");
+let start = new DateTime(2022, 4, 18,2);
+let end = new DateTime(2022, 4, 18,8);
 let waiter = new Waiter(StaffCategory.WAITRON,1,'chanthy',20,Gender.FEMALE, "0884392832");
-let customerBooked = new CustomerBooked(vip1, vipRoom,start,end);
+let customerBooked = new CustomerBooked(CustomerVIPThib, vipRoom,start,end);
 customerBooked.addWaiter(waiter);
 let Calendar = new CalendarManager();
 restaurant.calendar = Calendar;
-restaurant.calendar.addEvent(customerBooked)
+restaurant.calendar.addCustomerBook(customerBooked)
 let even2 = new Event(start, end);
-console.log(restaurant.rooms.getVIPRoomFree());
+// console.log(restaurant.rooms.getVIPRoomFree());
+let order = new Order(start, table,waiter);
+order.addMeal(soups,Coffee);
+// console.log(order.getPriceFromOrder())
+
 
 

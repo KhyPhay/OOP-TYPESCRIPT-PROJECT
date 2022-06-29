@@ -30,6 +30,14 @@ var DiningRoom = /** @class */ (function (_super) {
         _this.table = [];
         return _this;
     }
+    DiningRoom.prototype.isEqual = function (other) {
+        if (this.table.length == other.table.length &&
+            this.id == other.id &&
+            this.roomCategory == other.roomCategory) {
+            return true;
+        }
+        return false;
+    };
     DiningRoom.prototype.addTable = function () {
         var _a;
         var table = [];

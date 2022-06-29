@@ -7,8 +7,8 @@ export class HumanManager {
     private customer: Customer[]=[];
     private staffs : Staff[]=[];
 
-    addCustomer(customer: Customer) {
-        this.customer.push(customer);
+    addCustomer(...customer: Customer[]) {
+        this.customer = this.customer.concat(customer);
       }
     
       getCustomer() {
@@ -36,8 +36,8 @@ export class HumanManager {
         return normalCustomer;
       }
 
-      addStaff(staff: Staff) {
-        this.staffs.push(staff);
+      addStaff(...staff: Staff[]) {
+        this.staffs = this.staffs.concat(staff);
       }
       getStaffs() {
         return this.staffs;

@@ -26,6 +26,8 @@ var MealManager_1 = require("./meal/MealManager");
 var Dessert_1 = require("./meal/Dessert");
 var Drink_1 = require("./meal/Drink");
 var CalendarManager_1 = require("./calendar/CalendarManager");
+var Event_1 = require("./calendar/Event");
+var order_1 = require("./order/order");
 // address of restaurant
 var addess = new Address_1.Address('phnom penh', 2004);
 var restaurant = new Restaurant_1.Restaurant('Luckily', addess);
@@ -96,8 +98,6 @@ restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(normalRoom.getTable())
 // calendar
-// let start = new Date(2022,12,4,2);
-// let end = new Date(2022,12,4,8);
 var start = new Date("December 17, 2022 16:00:00");
 var end = new Date("December 18, 2022 16:00:00");
 var waiter = new Waiter_1.Waiter(Staff_1.StaffCategory.WAITRON, 1, 'chanthy', 20, Person_1.Gender.FEMALE, "0884392832");
@@ -106,4 +106,8 @@ customerBooked.addWaiter(waiter);
 var Calendar = new CalendarManager_1.CalendarManager();
 restaurant.calendar = Calendar;
 restaurant.calendar.addEvent(customerBooked);
-console.log(restaurant);
+var even2 = new Event_1.Event(start, end);
+// console.log(restaurant.rooms.getVIPRoomFree());
+var order = new order_1.Order(start, table, waiter);
+order.addMeal(soups, Coffee);
+console.log(order.getPriceFromOrder());

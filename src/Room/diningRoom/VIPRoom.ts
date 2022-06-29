@@ -13,7 +13,6 @@ export class VIPRoom extends DiningRoom{
         this.customerBooked = customerBooked;
     }
 
-
     getCustomerBooked():CustomerBooked|undefined{
         return this.customerBooked;
     }

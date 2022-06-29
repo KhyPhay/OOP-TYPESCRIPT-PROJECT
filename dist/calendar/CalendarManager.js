@@ -3,19 +3,19 @@ exports.__esModule = true;
 exports.CalendarManager = void 0;
 var CalendarManager = /** @class */ (function () {
     function CalendarManager() {
-        this.events = [];
+        this.customerBooked = [];
     }
-    CalendarManager.prototype.getEvents = function () {
-        return this.events;
+    CalendarManager.prototype.getCustomerBooked = function () {
+        return this.customerBooked;
     };
-    CalendarManager.prototype.addEvent = function (event) {
-        this.events.push(event);
+    CalendarManager.prototype.addEvent = function (other) {
+        this.customerBooked.push(other);
     };
     CalendarManager.prototype.getEventRooms = function () {
         var rooms = [];
-        var events = this.events;
-        events.forEach(function (event) {
-            rooms.push(event.getRoom());
+        var customerBookeds = this.customerBooked;
+        customerBookeds.forEach(function (customerBooked) {
+            rooms.push(customerBooked.getRoom());
         });
         return rooms;
     };

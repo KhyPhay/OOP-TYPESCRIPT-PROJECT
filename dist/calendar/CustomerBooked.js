@@ -20,13 +20,17 @@ var Event_1 = require("./Event");
 var CustomerBooked = /** @class */ (function (_super) {
     __extends(CustomerBooked, _super);
     function CustomerBooked(customerVIP, room, start, end) {
-        var _this = _super.call(this, start, end, room) || this;
+        var _this = _super.call(this, start, end) || this;
         _this.customerVIP = customerVIP;
-        _this.waitrons = [];
+        _this.room = room;
+        _this.waiters = [];
         return _this;
     }
     CustomerBooked.prototype.addWaiter = function (waitron) {
-        return this.waitrons.push(waitron);
+        return this.waiters.push(waitron);
+    };
+    CustomerBooked.prototype.getRoom = function () {
+        return this.room;
     };
     return CustomerBooked;
 }(Event_1.Event));

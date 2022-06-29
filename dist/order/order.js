@@ -2,10 +2,10 @@
 exports.__esModule = true;
 exports.Order = void 0;
 var Order = /** @class */ (function () {
-    function Order(date, table, waitron) {
+    function Order(date, table, waiter) {
         this.date = date;
         this.table = table;
-        this.waitron = waitron;
+        this.waiter = waiter;
         this.meal = [];
     }
     Order.prototype.getPriceFromOrder = function () {
@@ -15,6 +15,16 @@ var Order = /** @class */ (function () {
             price += victual.getPrice();
         }
         return price;
+    };
+    Order.prototype.addMeal = function () {
+        var meal = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            meal[_i] = arguments[_i];
+        }
+        this.meal = this.meal.concat(meal);
+    };
+    Order.prototype.getMeal = function () {
+        return this.meal;
     };
     return Order;
 }());

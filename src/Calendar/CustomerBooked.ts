@@ -10,8 +10,8 @@ export class CustomerBooked extends Event {
         super(start, end);
     }
     
-    addWaiter(waitron: Waiter){
-        return this.waiters.push(waitron);
+    addWaiter(...waiter: Waiter[]){
+        this.waiters = this.waiters.concat(waiter);
     }
 
     getRoom(){
