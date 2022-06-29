@@ -11,10 +11,12 @@ export class DiningRoom extends Room{
     constructor(id:number, protected roomCategory:RoomCategory){
         super(id);
     }
-    
-    addTable(tables: Table){
-        return this.table.push(tables);
+
+
+    addTable(...table:Table[]){
+        this.table = this.table.concat(...table);
     }
+    
     getTable(){
         return this.table
     }
@@ -22,7 +24,7 @@ export class DiningRoom extends Room{
         let result = true;
         let tables = this.table;
         for(let table of tables){
-            if(!table.getTableNoCustomer()){
+            if(!table.tableNoCustomer()){
                 result = false;
             }
         }
@@ -32,5 +34,17 @@ export class DiningRoom extends Room{
     getRoomCatetory(){
         return this.roomCategory;
     }
+
+    getMaxNumberCustomer(){
+        let tables = this.table
+        let max = 0
+        for(let table of tables){
+            max += table.getNumberOfCustomers();
+        }
+        
+        return max;
+    }
+
+
 
 }

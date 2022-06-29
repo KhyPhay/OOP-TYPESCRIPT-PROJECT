@@ -8,7 +8,7 @@ var RoomManager = /** @class */ (function () {
         this.kitchenRoom = [];
     }
     RoomManager.prototype.addDiningRoom = function (room) {
-        return this.diningRooms.push(room);
+        this.diningRooms.push(room);
     };
     RoomManager.prototype.addKitchenRoom = function (kichenroom) {
         return this.kitchenRoom.push(kichenroom);
@@ -21,11 +21,17 @@ var RoomManager = /** @class */ (function () {
             if (room.isAllTablesFree() && room.getRoomCatetory() === DiningRoom_1.RoomCategory.VIPROOM) {
                 var vipRoom = room;
                 if (vipRoom.getEvent() === undefined || !((_a = vipRoom.getEvent()) === null || _a === void 0 ? void 0 : _a.hasEvent(event))) {
-                    return room;
+                    return vipRoom;
                 }
             }
         }
         return undefined;
+    };
+    RoomManager.prototype.addCustomerVIP = function (customer, event) {
+        var room = this.getVIPRoomFree(event);
+        if (room !== undefined) {
+            room.addCustomer(customer);
+        }
     };
     return RoomManager;
 }());

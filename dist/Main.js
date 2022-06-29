@@ -9,14 +9,6 @@ var HumanManager_1 = require("./human/HumanManager");
 var Manager_1 = require("./human/staff/Manager");
 var Staff_1 = require("./human/staff/Staff");
 var Chef_1 = require("./human/staff/Chef");
-var VictualsManager_1 = require("./victuals/VictualsManager");
-var EverydayDrink_1 = require("./victuals/drink/EverydayDrink");
-var Drink_1 = require("./victuals/drink/Drink");
-var Victuals_1 = require("./victuals/Victuals");
-var PackageDrink_1 = require("./victuals/drink/PackageDrink");
-var EverydayFood_1 = require("./victuals/food/EverydayFood");
-var Food_1 = require("./victuals/food/Food");
-var PackageFood_1 = require("./victuals/food/PackageFood");
 var Ingredient_1 = require("./room/kitchen/Ingredient");
 var Item_1 = require("./room/kitchen/Item");
 var Material_1 = require("./room/kitchen/Material");
@@ -28,6 +20,12 @@ var VIPRoom_1 = require("./Room/diningRoom/VIPRoom");
 var Table_1 = require("./Room/diningRoom/table/Table");
 var CustomerBooked_1 = require("./calendar/CustomerBooked");
 var Waitron_1 = require("./human/staff/Waitron");
+var Meal_1 = require("./meal/Meal");
+var Food_1 = require("./meal/Food");
+var MealManager_1 = require("./meal/MealManager");
+var Dessert_1 = require("./meal/Dessert");
+var Drink_1 = require("./meal/Drink");
+var CalendarManager_1 = require("./calendar/CalendarManager");
 // address of restaurant
 var addess = new Address_1.Address('phnom penh', 2004);
 var restaurant = new Restaurant_1.Restaurant('Luckily', addess);
@@ -50,25 +48,19 @@ restaurant.hr.addStaff(manager);
 restaurant.hr.addStaff(chef);
 // console.log(human)
 // create drink in restaurant
-var Coffee = new EverydayDrink_1.EveryDayDrink(Drink_1.DrinkCategory.EveryDayDrink, Victuals_1.VitaulsCategory.DRINK, 'Coffee', 150);
-var Smoothie = new EverydayDrink_1.EveryDayDrink(Drink_1.DrinkCategory.EveryDayDrink, Victuals_1.VitaulsCategory.DRINK, 'Smoothie', 200);
-var milk_madeDate = new Date("December 17, 2019 16:30:00");
-var milk_expirationDate = new Date("December 17, 2022 16:30:00");
-var milk = new PackageDrink_1.PackageDrink(Drink_1.DrinkCategory.PackageDrink, Victuals_1.VitaulsCategory.DRINK, 'Milk', 140, milk_madeDate, milk_expirationDate);
-// create food in restaurant
-var soups = new EverydayFood_1.EveryDayFood(Food_1.FoodCategory.EveryDayFood, Victuals_1.VitaulsCategory.FOOD, 'soups', 350);
-var noodles_madeDate = new Date("December 17, 2018 ");
-var noodles_expirationDate = new Date("December 17, 2023 ");
-var noodles = new PackageFood_1.PackageFood(Food_1.FoodCategory.PackageFood, Victuals_1.VitaulsCategory.FOOD, 'noodles', 350, noodles_madeDate, noodles_expirationDate);
-// add drink into VictualsManager
-var victuals = new VictualsManager_1.VictualsManager();
-restaurant.victuals = victuals;
-restaurant.victuals.addDrink(milk);
-restaurant.victuals.addDrink(Coffee);
-restaurant.victuals.addDrink(Smoothie);
-// add food into VictualsManager
-restaurant.victuals.addFood(soups);
-restaurant.victuals.addFood(noodles);
+var Coffee = new Drink_1.Drink(Meal_1.MealCategory.DRINK, 'Coffee', 200);
+var Smoothie = new Drink_1.Drink(Meal_1.MealCategory.DRINK, 'Smoothie', 300);
+var Cupcakes = new Dessert_1.Dessert(Meal_1.MealCategory.Dessert, 'Cupcakes', 600);
+// create food and drink in restaurant
+var soups = new Food_1.Food(Meal_1.MealCategory.MEAL, 'soups', 500);
+// add drink and food in FoodManager
+var victual = new MealManager_1.MealManager();
+restaurant.victuals = victual;
+restaurant.victuals.addMeal(Smoothie);
+restaurant.victuals.addMeal(Coffee);
+restaurant.victuals.addMeal(soups);
+restaurant.victuals.addMeal(Cupcakes);
+// console.log(victual)
 // create Ingredient
 var meat = new Ingredient_1.Ingredient('meat', 900, Item_1.ItemCategory.INGREDIENT);
 var vegetables = new Ingredient_1.Ingredient('vegetables', 900, Item_1.ItemCategory.INGREDIENT);
@@ -89,7 +81,8 @@ restaurant.rooms.addKitchenRoom(kitchen);
 // console.log(kitchen)
 // add table to diningRoom
 var table = new Table_1.Table(1, 5);
-table.addCustomer(vip1);
+table.addCustomerVIP(vip1);
+console.log(table);
 var table1 = new Table_1.Table(2, 5);
 var table3 = new Table_1.Table(3, 5);
 var table4 = new Table_1.Table(4, 5);
@@ -99,7 +92,6 @@ vipRoom.addTable(table);
 vipRoom.addTable(table1);
 normalRoom.addTable(table3);
 normalRoom.addTable(table4);
-// console.log(vipRoom.addTable(table))
 restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(normalRoom.getTable())
@@ -108,7 +100,10 @@ restaurant.rooms.addDiningRoom(vipRoom);
 // let end = new Date(2022,12,4,8);
 var start = new Date("December 17, 2022 16:00:00");
 var end = new Date("December 18, 2022 16:00:00");
-var waitron = new Waitron_1.Waitron(Staff_1.StaffCategory.WAITRON, 1, 'chanthy', 20, Person_1.Gender.FEMALE);
+var waiter = new Waitron_1.Waiter(Staff_1.StaffCategory.WAITRON, 1, 'chanthy', 20, Person_1.Gender.FEMALE);
 var customerBooked = new CustomerBooked_1.CustomerBooked(vip1, vipRoom, start, end);
-customerBooked.addWaitron(waitron);
-console.log(customerBooked);
+customerBooked.addWaitron(waiter);
+var Calendar = new CalendarManager_1.CalendarManager();
+restaurant.calendar = Calendar;
+restaurant.calendar.addEvent(customerBooked);
+// console.log(restaurant.calendar.getEvents())

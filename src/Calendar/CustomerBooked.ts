@@ -1,16 +1,15 @@
-
-import { DateTime } from "./DateTime";
 import { Event } from "./Event";
 import {CustomerVIP} from "../human/customer/CustomerVIP";
-import {Waitron} from "../human/staff/Waitron"
+import {Waiter} from "../human/staff/Waitron"
 import { VIPRoom } from "../Room/diningRoom/VIPRoom";
+import { DateTime } from "./DateTime";
 
 export class CustomerBooked extends Event {
-    private waitrons:Waitron[]=[];
+    private waitrons:Waiter[]=[];
     constructor(private customerVIP: CustomerVIP, room: VIPRoom,start: DateTime, end: DateTime){
         super(start, end,room);
     }
-    addWaitron(waitron: Waitron){
+    addWaiter(waitron: Waiter){
         return this.waitrons.push(waitron);
     }
 }

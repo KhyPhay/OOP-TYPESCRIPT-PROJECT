@@ -15,20 +15,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.TypeDrink = exports.DrinkCategory = void 0;
-var Vituals_1 = require("../Vituals");
-var DrinkCategory;
-(function (DrinkCategory) {
-    DrinkCategory[DrinkCategory["EveryDayDrink"] = 0] = "EveryDayDrink";
-    DrinkCategory[DrinkCategory["PackageDrink"] = 1] = "PackageDrink";
-})(DrinkCategory = exports.DrinkCategory || (exports.DrinkCategory = {}));
-var TypeDrink = /** @class */ (function (_super) {
-    __extends(TypeDrink, _super);
-    function TypeDrink(drinkCategory, VitaulsType, name, price) {
-        var _this = _super.call(this, VitaulsType, name, price) || this;
-        _this.drinkCategory = drinkCategory;
+exports.Dessert = void 0;
+var Meal_1 = require("./Meal");
+var Dessert = /** @class */ (function (_super) {
+    __extends(Dessert, _super);
+    function Dessert(foodCategory, name, price) {
+        var _this = _super.call(this, foodCategory, name, price) || this;
+        _this.foodCategory = foodCategory;
         return _this;
     }
-    return TypeDrink;
-}(Vituals_1.Vituals));
-exports.TypeDrink = TypeDrink;
+    return Dessert;
+}(Meal_1.Meal));
+exports.Dessert = Dessert;

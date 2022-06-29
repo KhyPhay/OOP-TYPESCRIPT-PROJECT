@@ -15,13 +15,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.EveryDayDrink = void 0;
-var TypeDrink_1 = require("./TypeDrink");
-var EveryDayDrink = /** @class */ (function (_super) {
-    __extends(EveryDayDrink, _super);
-    function EveryDayDrink(drinkCategory, VitaulsType, name, price) {
-        return _super.call(this, drinkCategory, VitaulsType, name, price) || this;
+exports.Food = void 0;
+var Meal_1 = require("./Meal");
+var Food = /** @class */ (function (_super) {
+    __extends(Food, _super);
+    function Food(foodCategory, name, price) {
+        var _this = _super.call(this, foodCategory, name, price) || this;
+        _this.foodCategory = foodCategory;
+        return _this;
     }
-    return EveryDayDrink;
-}(TypeDrink_1.TypeDrink));
-exports.EveryDayDrink = EveryDayDrink;
+    return Food;
+}(Meal_1.Meal));
+exports.Food = Food;

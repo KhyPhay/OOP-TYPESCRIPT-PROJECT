@@ -10,14 +10,8 @@ var CustomerCategory;
 var Customer = /** @class */ (function () {
     function Customer(category, id) {
         this.category = category;
+        this.id = id;
     }
-    // isEqual(other:Customer):boolean {
-    //     let result = false;
-    //     if(this.category === other.category && this.name === other.name && this.age === other.age && this.gender === other.gender && this.id === other.id){
-    //         result = true;
-    //     }
-    //     return result;
-    // }
     Customer.prototype.getCustomerCategory = function () {
         return this.category;
     };

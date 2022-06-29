@@ -30,8 +30,13 @@ var DiningRoom = /** @class */ (function (_super) {
         _this.table = [];
         return _this;
     }
-    DiningRoom.prototype.addTable = function (tables) {
-        return this.table.push(tables);
+    DiningRoom.prototype.addTable = function () {
+        var _a;
+        var table = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            table[_i] = arguments[_i];
+        }
+        this.table = (_a = this.table).concat.apply(_a, table);
     };
     DiningRoom.prototype.getTable = function () {
         return this.table;
@@ -41,7 +46,7 @@ var DiningRoom = /** @class */ (function (_super) {
         var tables = this.table;
         for (var _i = 0, tables_1 = tables; _i < tables_1.length; _i++) {
             var table = tables_1[_i];
-            if (!table.getTableNoCustomer()) {
+            if (!table.tableNoCustomer()) {
                 result = false;
             }
         }
@@ -49,6 +54,15 @@ var DiningRoom = /** @class */ (function (_super) {
     };
     DiningRoom.prototype.getRoomCatetory = function () {
         return this.roomCategory;
+    };
+    DiningRoom.prototype.getMaxNumberCustomer = function () {
+        var tables = this.table;
+        var max = 0;
+        for (var _i = 0, tables_2 = tables; _i < tables_2.length; _i++) {
+            var table = tables_2[_i];
+            max += table.getNumberOfCustomers();
+        }
+        return max;
     };
     return DiningRoom;
 }(Room_1.Room));

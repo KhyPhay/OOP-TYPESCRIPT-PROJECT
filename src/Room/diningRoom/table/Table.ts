@@ -1,5 +1,6 @@
-import { Customer } from "../../../human/customer/Customer";
-
+import { Customer,CustomerCategory } from "../../../human/customer/Customer";
+import { CustomerVIP } from "../../../human/customer/CustomerVIP";
+import { CustomerNormal } from "../../../human/customer/CustomerNormal";
 export class Table {
     private customers: Customer[]=[];
     constructor(private id: number, private numberOfCustomers: number){}
@@ -11,16 +12,26 @@ export class Table {
         return result;
     }
 
-    getTableNoCustomer():boolean{
+    tableNoCustomer():boolean{
         if (this.customers.length == 0){
             return true;
         }
         return false;
     }
-    
-    addCustomer(customer: Customer){
+
+    addCustomerNormal(...customerNormal: CustomerNormal[]){
         if (this.isTableFree()){
-            this.customers.push(customer);
+            this.customers = this.customers.concat(...customerNormal);
         }
+    }
+
+    addCustomerVIP(...customerVIP: CustomerVIP[]){
+        if(customerVIP.length < this.numberOfCustomers){
+            this.customers = this.customers.concat(...customerVIP);
+        }
+    }
+
+    getNumberOfCustomers(){
+        return this.numberOfCustomers;
     }
 }

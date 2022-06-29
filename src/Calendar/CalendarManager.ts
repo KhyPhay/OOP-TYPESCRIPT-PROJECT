@@ -8,6 +8,9 @@ export class CalendarManager {
     getEvents():Event[] {
         return this.events;
     }
+    addEvent(event: Event) {
+        this.events.push(event);
+      }
 
     getEventRooms(): Room[]{
         let rooms:Room[] = [];
