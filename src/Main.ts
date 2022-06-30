@@ -68,7 +68,7 @@ restaurant.hr.addStaff(manager,chef,cashier,security,waiter,cleaner);
 // create drink and food in restaurant
 let Coffee = new Drink(MealCategory.DRINK,'Coffee',200);
 let Smoothie  = new Drink (MealCategory.DRINK,'Smoothie', 300);
-let Cupcakes = new Dessert(MealCategory.Dessert,'Cupcakes',600)
+let Cupcakes = new Dessert(MealCategory.Dessert,'Cupcakes',600);
 let soups = new Food(MealCategory.MEAL,'soups',500);
 
 // add drink and food in FoodManager
@@ -95,7 +95,7 @@ kitchen.addIngredient(meat,fish,vegetables);
 let rooms = new RoomManager();
 restaurant.rooms = rooms;
 restaurant.rooms.addKitchenRoom(kitchen);
-// console.log(kitchen)
+console.log(kitchen)
 
 // add table to diningRoom
 let table = new Table(1,5);
@@ -115,8 +115,11 @@ restaurant.rooms.addDiningRoom(vipRoom);
 
 // calendar
 
-let start = new DateTime(2022, 4, 18,2);
-let end = new DateTime(2022, 4, 18,8);
+
+let start = new Date("December 17, 2022 16:00:00");
+// console.log(start);
+// let end = new DateTime(2022, 4, 18,8);
+let end = new Date("December 17, 2022 16:00:00");
 let customerBooked = new CustomerBooked(CustomerVIPThib, vipRoom,start,end);
 customerBooked.addWaiter(waiter);
 let Calendar = new CalendarManager();
@@ -126,7 +129,7 @@ restaurant.calendar.addCustomerBook(customerBooked)
 let roomVip1 = new VIPRoom(1,RoomCategory.VIPROOM)
 restaurant.rooms.addDiningRoom(roomVip1);
 
-console.log(restaurant.rooms.getVIPRoomFree());
+// console.log(restaurant.rooms.getVIPRoomFree());
 let order = new Order(start, table,waiter);
 order.addMeal(soups,Coffee);
 // console.log(order.getPriceFromOrder())
