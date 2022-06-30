@@ -8,6 +8,7 @@ export enum StaffCategory{
     CLEANER,
     DISHWASHER,
     WAITRON,
+    Cashier,
 }
 export class Staff extends Person {
     protected salary: number = 0;

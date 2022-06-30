@@ -8,7 +8,7 @@ export class CalendarManager {
     getCustomerBooked():CustomerBooked[] {
         return this.customerBooked;
     }
-    addEvent(other: CustomerBooked) {
+    addCustomerBook(other: CustomerBooked) {
         this.customerBooked.push(other);
       }
 

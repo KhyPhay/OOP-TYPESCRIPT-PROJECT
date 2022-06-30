@@ -17,6 +17,6 @@ export class Restaurant {
     public calendar: CalendarManager = new CalendarManager();
     public rooms : RoomManager = new RoomManager();
     public hr: HumanManager = new HumanManager();
-    public victuals: MealManager = new MealManager();
+    public meal: MealManager = new MealManager();
     public order : OrderManager = new OrderManager();
 }

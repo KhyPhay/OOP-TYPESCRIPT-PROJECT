@@ -5,7 +5,7 @@ import { Meal } from "../meal/Meal";
 
 export class Order {
     private meal : Meal[]=[];
-    constructor(private date : DateTime, private table : Table, private waitron: Waiter){}
+    constructor(private date : DateTime, private table : Table, private waiter: Waiter){}
 
     getPriceFromOrder(){
         let price = 0;
@@ -13,5 +13,12 @@ export class Order {
             price += victual.getPrice();
         }
         return price;
+    }
+    addMeal(...meal: Meal[]){
+        this.meal = this.meal.concat(meal);
+
+    }
+    getMeal(){
+        return this.meal;
     }
 }

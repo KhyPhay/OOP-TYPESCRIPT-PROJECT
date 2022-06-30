@@ -18,18 +18,18 @@ export class RoomManager {
       }
       return rooms;
    }
-   addDiningRoom(room: DiningRoom) {
-      this.diningRooms.push(room);
+   addDiningRoom(...room: DiningRoom[]) {
+      this.diningRooms = this.diningRooms.concat(room);
    }
-   addKitchenRoom(kichenRoom: Kitchen) {
-      return this.kitchenRoom.push(kichenRoom);
+   addKitchenRoom(...kichenRoom: Kitchen[]) {
+      this.kitchenRoom = this.kitchenRoom.concat(kichenRoom);
    }
    
 
    getVIPRoomFree():VIPRoom | undefined {
       let vipRooms = this.getVIPRoom();
       for(let room of vipRooms){
-         if(room.getCustomerBooked()!== undefined){
+         if(room.getCustomerBooked() === undefined){
             return room;
          }
       }
