@@ -35,7 +35,7 @@ var addess = new Address_1.Address('phnom penh', 2004);
 var restaurant = new Restaurant_1.Restaurant('Luckily', addess);
 // create customerVIP in restaurant
 var CustomerVIPThib = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "Thib", 19, Person_1.Gender.FEMALE, "884382832");
-var CustomerVIPKhy = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "khy", 19, Person_1.Gender.MALE, "0884392832");
+var CustomerVIPKhy = new CustomerVIP_1.CustomerVIP(Customer_1.CustomerCategory.CUSTOMER_VIP, 1, "khy", 20, Person_1.Gender.MALE, "0884392832");
 // console.log(vip.isEqual(vip1));
 // create staffs in restaurant
 var manager = new Manager_1.Manager(Staff_1.StaffCategory.MANAGER, 1, 'Lina', 30, Person_1.Gender.FEMALE, "0884392832");
@@ -57,7 +57,7 @@ restaurant.hr.addCustomer(CustomerVIPKhy);
 restaurant.hr.getCustomerVIP();
 // console.log(restaurant.hr.getCustomerNormal())
 restaurant.hr.addStaff(manager, chef, cashier, security, waiter, cleaner);
-// console.log(human)
+console.log(human);
 // create drink and food in restaurant
 var Coffee = new Drink_1.Drink(Meal_1.MealCategory.DRINK, 'Coffee', 200);
 var Smoothie = new Drink_1.Drink(Meal_1.MealCategory.DRINK, 'Smoothie', 300);
@@ -82,7 +82,7 @@ kitchen.addIngredient(meat, fish, vegetables);
 var rooms = new RoomManager_1.RoomManager();
 restaurant.rooms = rooms;
 restaurant.rooms.addKitchenRoom(kitchen);
-console.log(kitchen);
+// console.log(kitchen)
 // add table to diningRoom
 var table = new Table_1.Table(1, 5);
 var table1 = new Table_1.Table(2, 5);
@@ -99,10 +99,8 @@ restaurant.rooms.addDiningRoom(normalRoom);
 restaurant.rooms.addDiningRoom(vipRoom);
 // console.log(restaurant.rooms)
 // calendar
-var start = new Date("December 17, 2022 16:00:00");
-// console.log(start);
-// let end = new DateTime(2022, 4, 18,8);
-var end = new Date("December 17, 2022 16:00:00");
+var start = new Date(2022, 4, 18, 2);
+var end = new Date(2022, 4, 17, 8);
 var customerBooked = new CustomerBooked_1.CustomerBooked(CustomerVIPThib, vipRoom, start, end);
 customerBooked.addWaiter(waiter);
 var Calendar = new CalendarManager_1.CalendarManager();
@@ -112,5 +110,8 @@ var roomVip1 = new VIPRoom_1.VIPRoom(1, DiningRoom_1.RoomCategory.VIPROOM);
 restaurant.rooms.addDiningRoom(roomVip1);
 // console.log(restaurant.rooms.getVIPRoomFree());
 var order = new order_1.Order(start, table, waiter);
+var order2 = new order_1.Order(start, table, waiter);
 order.addMeal(soups, Coffee);
-// console.log(order.getPriceFromOrder())
+order2.addMeal(soups, Coffee);
+restaurant.order.addOrder(order, order2);
+console.log(restaurant.order.getFoodADay(start));

@@ -26,6 +26,18 @@ var Order = /** @class */ (function () {
     Order.prototype.getMeal = function () {
         return this.meal;
     };
+    Order.prototype.getDateTime = function () {
+        return this.date;
+    };
+    Order.prototype.isDayEqual = function (other) {
+        var date = this.date;
+        if (date.getFullYear() === other.getFullYear() &&
+            date.getDate() === other.getDate() &&
+            date.getMonth() === other.getMonth()) {
+            return true;
+        }
+        return false;
+    };
     return Order;
 }());
 exports.Order = Order;
