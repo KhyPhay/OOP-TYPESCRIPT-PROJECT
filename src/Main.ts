@@ -26,7 +26,6 @@ import { Drink } from "./meal/Drink";
 import { CalendarManager } from "./calendar/CalendarManager";
 import {Event} from "./calendar/Event"
 import { Order } from "./order/order";
-import { DateTime } from "./calendar/DateTime";
 import { Cashier } from "./human/staff/Cashier";
 import { Security } from "./human/staff/Security";
 import { Cleaner } from "./human/staff/Cleaner";
@@ -115,8 +114,8 @@ restaurant.rooms.addDiningRoom(vipRoom);
 
 // calendar
 
-let start = new DateTime(2022, 4, 18,2);
-let end = new DateTime(2022, 4, 18,8);
+let start = new Date(2022, 4, 18,2);
+let end = new Date(2022, 4, 17,8);
 let customerBooked = new CustomerBooked(CustomerVIPThib, vipRoom,start,end);
 customerBooked.addWaiter(waiter);
 let Calendar = new CalendarManager();
@@ -125,8 +124,12 @@ restaurant.calendar.addCustomerBook(customerBooked)
 
 let roomVip1 = new VIPRoom(1,RoomCategory.VIPROOM)
 restaurant.rooms.addDiningRoom(roomVip1);
+// console.log(restaurant.rooms.getVIPRoomFree());
 
-console.log(restaurant.rooms.getVIPRoomFree());
 let order = new Order(start, table,waiter);
+let order2 = new Order(start, table,waiter);
 order.addMeal(soups,Coffee);
-// console.log(order.getPriceFromOrder())
+order2.addMeal(soups,Coffee);
+restaurant.order.addOrder(order,order2);
+
+console.log(restaurant.order.getFoodADay(start));
