@@ -63,7 +63,7 @@ restaurant.hr.getCustomerVIP();
 // console.log(restaurant.hr.getCustomerNormal())
 
 restaurant.hr.addStaff(manager,chef,cashier,security,waiter,cleaner);
-console.log(human)
+// console.log(human)
 
 // create drink and food in restaurant
 let Coffee = new Drink(MealCategory.DRINK,'Coffee',200);
@@ -122,11 +122,11 @@ customerBooked.addWaiter(waiter);
 let Calendar = new CalendarManager();
 restaurant.calendar = Calendar;
 restaurant.calendar.addCustomerBook(customerBooked)
-let even2 = new Event(start, end);
-// console.log(restaurant.rooms.getVIPRoomFree());
+
+let roomVip1 = new VIPRoom(1,RoomCategory.VIPROOM)
+restaurant.rooms.addDiningRoom(roomVip1);
+
+console.log(restaurant.rooms.getVIPRoomFree());
 let order = new Order(start, table,waiter);
 order.addMeal(soups,Coffee);
 // console.log(order.getPriceFromOrder())
-
-
-

@@ -29,7 +29,7 @@ export class RoomManager {
    getVIPRoomFree():VIPRoom | undefined {
       let vipRooms = this.getVIPRoom();
       for(let room of vipRooms){
-         if(room.getCustomerBooked()!== undefined){
+         if(room.getCustomerBooked() === undefined){
             return room;
          }
       }
